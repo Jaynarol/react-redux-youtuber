@@ -1,10 +1,10 @@
-import Validator, { required, email, minLength, same, maxLength } from '../../utils/Validate'
+import Validator, { required, email, minLength, same, maxLength } from '../../../utils/Validate'
 
 export const initialValues = {
-  email: '',
-  pass: '',
-  tryPass: '',
-  accepted: false
+  email: 'example@domain.com',
+  pass: 'password',
+  tryPass: 'password',
+  accepted: true
 }
 
 export const validate = Validator({

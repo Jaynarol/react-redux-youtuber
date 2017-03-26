@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import PageRegister from './PageRegister'
 import { initialValues, validate } from './form'
+import PageRegister from './PageRegister'
+import { signupAuth } from '../../../actions/auth'
 
 const form = reduxForm({
   form: 'register'
@@ -12,6 +13,6 @@ const mapStateToProps = () => ({
   validate
 })
 
-const mapDispatchToProps = {}
+const mapDispatchToProps = { signupAuth }
 
 export default connect(mapStateToProps, mapDispatchToProps)(form)

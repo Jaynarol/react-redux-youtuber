@@ -28,8 +28,8 @@ const PageLogin = () => (
           </FormGroup>
           <hr />
           <FormGroup>
-            <Link to="/register">Register</Link>{' | '}
-            <Link to="/register">Forgot password?</Link>
+            <Link to="/register" >Register</Link>{' | '}
+            <Link to="/" >Forgot password?</Link>
             <Button className="float-right" color="info" >Login</Button>
           </FormGroup>
         </Form>

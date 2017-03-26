@@ -4,9 +4,9 @@ import { FormGroup, Input, Label, UncontrolledTooltip } from 'reactstrap'
 const FieldCheckbox = ({ input, label, meta: { touched, error } }) => {
   const fieldId = `id-check-${input.name}`
   return (
-    <FormGroup className="clearfix" >
+    <FormGroup check className="clearfix" >
       <Label check id={fieldId} className="float-right" >
-        <Input {...input} type="checkbox" />{' '}
+        <Input {...input} checked={input.value} type="checkbox" />{' '}
         {label}
       </Label>
       <UncontrolledTooltip placement="left" isOpen={touched && !!error} target={fieldId} className="field-input-tooltip" >
