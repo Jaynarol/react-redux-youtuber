@@ -9,8 +9,7 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, sign
     <Col sm={{ size: 6, offset: 3 }}>
       <Card block>
         <CardTitle style={{ marginBottom: '20px' }} >Register</CardTitle>
-        {
-          submitFailed &&
+        { submitFailed &&
           <Alert color="danger">
             <strong>Oh snap!</strong> Something wrong.
           </Alert>
