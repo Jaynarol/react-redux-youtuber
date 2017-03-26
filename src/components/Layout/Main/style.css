@@ -4,8 +4,21 @@ html, body {
   font-family: sans-serif;
 }
 
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.field-input-tooltip{
+  background-color: orangered;
+}
+
+.field-input-tooltip::before{
+  border-left-color: transparent!important;
+  border-top-color: transparent!important;
 }

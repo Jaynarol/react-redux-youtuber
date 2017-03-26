@@ -3,10 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import 'bootstrap/dist/css/bootstrap.css'
 import LayoutMain from '../Layout/Main'
-import PageYoutuber from '../Page/Youtuber'
-import PageLogin from '../Page/Login'
-import PageRegister from '../Page/Register'
-import './style.css'
+import { PageLogin, PageRegister, PageYoutuber } from '../Page'
 
 const App = ({ history }) => (
   <ConnectedRouter history={history}>

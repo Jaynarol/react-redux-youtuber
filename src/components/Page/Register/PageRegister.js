@@ -1,11 +1,10 @@
 import React, { PropTypes } from 'react'
-import { Button, Card, CardTitle, Col, Form, FormGroup, Row } from 'reactstrap'
+import { Card, CardTitle, Col, Form, FormGroup, Row } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import { Field } from 'redux-form'
-import FieldInput from '../../Field/Input'
-import FieldCheckbox from '../../Field/Checkbox'
+import { FieldInput, FieldCheckbox, FieldSubmit } from '../../Field'
 
-const PageRegister = ({ invalid, handleSubmit, signupAuth }) => (
+const PageRegister = ({ invalid, submitting, signupAuth, handleSubmit }) => (
   <Row style={{ marginTop: '50px' }}>
     <Col sm={{ size: 6, offset: 3 }}>
       <Card block>
@@ -19,7 +18,7 @@ const PageRegister = ({ invalid, handleSubmit, signupAuth }) => (
           <FormGroup>
             <Link to="/login" >Login</Link>{' | '}
             <Link to="/" >Forgot password?</Link>
-            <Button className="float-right" color="info" disabled={invalid} >Register</Button>
+            <FieldSubmit label="Register" isDisable={invalid || submitting} isLoading={submitting} />
           </FormGroup>
         </Form>
       </Card>
@@ -27,10 +26,12 @@ const PageRegister = ({ invalid, handleSubmit, signupAuth }) => (
   </Row>
 )
 
+
 PageRegister.propTypes = {
   invalid: PropTypes.bool.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  signupAuth: PropTypes.func.isRequired
+  submitting: PropTypes.bool.isRequired,
+  signupAuth: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 }
 
 export default PageRegister

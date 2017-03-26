@@ -1,7 +1,3 @@
-const TYPE = {
-  USER: {
-    SIGNUP: 'SIGNUP_USER'
-  }
-}
+const TYPE = {}
 
 export default TYPE

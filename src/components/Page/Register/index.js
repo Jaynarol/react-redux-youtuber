@@ -5,12 +5,13 @@ import PageRegister from './PageRegister'
 import { signupAuth } from '../../../actions/auth'
 
 const form = reduxForm({
-  form: 'register'
+  form: 'register',
+  destroyOnUnmount: false,
+  validate
 })(PageRegister)
 
 const mapStateToProps = () => ({
-  initialValues,
-  validate
+  initialValues
 })
 
 const mapDispatchToProps = { signupAuth }
