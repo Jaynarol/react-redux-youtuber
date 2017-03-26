@@ -12,7 +12,7 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, sign
         {
           submitFailed &&
           <Alert color="danger">
-            <strong>Oh snap!</strong> Something wrong, please try again.
+            <strong>Oh snap!</strong> Something wrong.
           </Alert>
         }
         { !submitSucceeded &&
