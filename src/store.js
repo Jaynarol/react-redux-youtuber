@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux'
+import { reducer as form } from 'redux-form'
 
-export const initialStore = {
-  test: ''
-}
+export const initialStore = {}
 
 const rootReducer = combineReducers({
-  test: () => null
+  form
 })
 
 export default rootReducer

@@ -31,11 +31,9 @@ const render = Component => {
 render(App)
 if (module.hot) {
   module.hot.accept('./components/App', () => {
-    const NextApp = require('./components/App').default
-    render(NextApp)
+    render(require('./components/App').default)
   })
   module.hot.accept('./store', () => {
-    const NextRootReducer = require('./store').default
-    store.replaceReducer(NextRootReducer)
+    store.replaceReducer(require('./store').default)
   })
 }

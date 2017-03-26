@@ -6,6 +6,7 @@ import LayoutMain from '../LayoutMain'
 import PageYoutuber from '../PageYoutuber'
 import PageLogin from '../PageLogin'
 import PageRegister from '../PageRegister'
+import './style.css'
 
 const App = ({ history }) => (
   <ConnectedRouter history={history}>

@@ -1,0 +1,8 @@
+.field-input-tooltip{
+  background-color: orangered;
+}
+
+.field-input-tooltip::before{
+  border-left-color: transparent!important;
+  border-top-color: transparent!important;
+}
