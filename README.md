@@ -5,7 +5,9 @@ Now this project not finish yet, and may be use much time to development because
 
 [Live Demo](https://react-youtube-api-tain.firebaseapp.com)
 
+
 #### Dependencies
+Easy setup Environments with [react-create-app](https://github.com/facebookincubator/create-react-app)
 - react
 - redux
 - redux-form
