@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { initialValues, validate } from './form'
-import PageRegister from './PageRegister'
 import { signupAuth } from '../../../actions/auth'
+import { initialValues, validate } from './form'
+import PageRegister from './ui'
 
 const form = reduxForm({
   form: 'register',
