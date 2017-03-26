@@ -6,8 +6,8 @@ const PageLogin = () => (
   <Row style={{ marginTop: '50px' }}>
     <Col sm={{ size: 6, offset: 3 }}>
       <Card block>
-        <CardTitle className="panel-title">Sign in</CardTitle>
-        <Form>
+        <CardTitle>Sign in</CardTitle>
+        <Form style={{ marginTop: '20px' }}>
           <FormGroup>
             <InputGroup>
               <InputGroupAddon>@</InputGroupAddon>
@@ -26,6 +26,7 @@ const PageLogin = () => (
               Remember me
             </Label>
           </FormGroup>
+          <hr />
           <FormGroup>
             <Link to="/register">Register</Link>{' | '}
             <Link to="/register">Forgot password?</Link>

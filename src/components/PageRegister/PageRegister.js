@@ -11,11 +11,11 @@ const PageRegister = ({ handleSubmit }) => (
   <Row style={{ marginTop: '50px' }}>
     <Col sm={{ size: 6, offset: 3 }}>
       <Card block>
-        <CardTitle className="panel-title">Register</CardTitle>
-        <Form onSubmit={handleSubmit(muSubmit)} >
+        <CardTitle>Register</CardTitle>
+        <Form onSubmit={handleSubmit(muSubmit)} style={{ marginTop: '20px' }} >
           <Field component={FieldInput} name="email" label="Email" type="text" icon="@" />
           <Field component={FieldInput} name="pass" label="Password" type="password" icon="&#9919;" />
-          <Field component={FieldInput} name="tryPass" label="Password" type="password" icon="&#9919;" />
+          <Field component={FieldInput} name="tryPass" label="Retry Password" type="password" icon="&#9919;" />
           <Field component={FieldCheckbox} name="accepted" label="Accepted Policy" />
           <hr />
           <FormGroup>

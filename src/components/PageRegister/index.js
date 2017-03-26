@@ -4,12 +4,12 @@ import PageRegister from './PageRegister'
 import { initialValues, validate } from './form'
 
 const form = reduxForm({
-  form: 'register',
-  validate
+  form: 'register'
 })(PageRegister)
 
 const mapStateToProps = () => ({
-  initialValues
+  initialValues,
+  validate
 })
 
 const mapDispatchToProps = {}
