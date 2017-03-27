@@ -3,13 +3,14 @@ import { Alert, Button, Card, CardText, CardTitle, Col, Form, FormGroup, Row } f
 import { Link } from 'react-router-dom'
 import { Field } from 'redux-form'
 import { FieldInput, FieldCheckbox, FieldSubmit } from '../../Field'
+import loading from '../../_assets_/imgs/loading.svg'
 
 const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, signupAuth, handleSubmit }) => (
   <Row style={{ marginTop: '50px' }}>
     <Col sm={{ size: 6, offset: 3 }}>
       <Card block>
         <CardTitle style={{ marginBottom: '20px' }} >Register</CardTitle>
-        { submitFailed &&
+        { submitFailed && !submitting &&
           <Alert color="danger">
             <strong>Oh snap!</strong> Something wrong.
           </Alert>
@@ -22,9 +23,19 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, sign
             <Field component={FieldCheckbox} name="accepted" label="Accepted Policy" />
             <hr />
             <FormGroup>
-              <Link to="/login" >Login</Link>{' | '}
-              <Link to="/" >Forgot password?</Link>
-              <FieldSubmit label="Register" isDisable={invalid || submitting} isLoading={submitting} />
+              { submitting ?
+                <Row><Col className="text-center" ><img src={loading} alt="loading" /></Col></Row>
+                :
+                <Row>
+                  <Col>
+                    <Link to="/login" >Login</Link>{' | '}
+                    <Link to="/" >Forgot password?</Link>
+                  </Col>
+                  <Col className="text-right" >
+                    <FieldSubmit label="Register" invalid={invalid} debug />
+                  </Col>
+                </Row>
+              }
             </FormGroup>
           </Form>
         }

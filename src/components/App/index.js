@@ -4,9 +4,10 @@ import { ConnectedRouter } from 'connected-react-router'
 import 'bootstrap/dist/css/bootstrap.css'
 import LayoutMain from '../Layout/Main'
 import { PageLogin, PageRegister, PageYoutuber } from '../Page'
+import '../_assets_/style.css'
 
 const App = ({ history }) => (
-  <ConnectedRouter history={history}>
+  <ConnectedRouter history={history} >
     <LayoutMain>
       <Switch>
         <Route exact path="/" component={PageYoutuber} />

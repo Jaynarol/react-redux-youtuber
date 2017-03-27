@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router-dom'
 import { Collapse, Container, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap'
-import logo from './assets/logo.svg'
-import './style.css'
+import logo from './_assets_/logo.svg'
+import style from './_assets_/style.css'
 
 class LayoutMain extends Component {
 
@@ -21,8 +21,8 @@ class LayoutMain extends Component {
       <Container>
         <Navbar color="faded" light toggleable>
           <NavbarToggler right onClick={this.toggle} />
-          <NavbarBrand tag={Link} to="/">
-            <img src={logo} className="App-logo" alt="logo" />React Youtuber
+          <NavbarBrand tag={Link} to="/" >
+            <img src={logo} className={style.logo} alt="logo" />React Youtuber
           </NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar >

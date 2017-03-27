@@ -1,18 +1,22 @@
-export default class FakeServer {
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
-  static sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-  }
+const FakeServer = (error = false) => (
 
-  static postRegister() {
-    return this.sleep(3000)
+  class {
+
+    static postRegister() {
+      return delay(3000)
       .then(() => ({
-        success: true,
-        error: {
+        success: !error,
+        message: {
           email: 'this email already sign-up',
           pass: 'this pass easy to hack'
         }
       }))
+    }
+
   }
 
-}
+)
+
+export default FakeServer

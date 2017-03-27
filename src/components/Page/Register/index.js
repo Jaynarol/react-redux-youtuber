@@ -1,19 +1,13 @@
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form'
 import { signupAuth } from '../../../actions/auth'
-import { initialValues, validate } from './form'
-import PageRegister from './ui'
-
-const form = reduxForm({
-  form: 'register',
-  destroyOnUnmount: false,
-  validate
-})(PageRegister)
+import PageRegister, { initialValues } from './form'
 
 const mapStateToProps = () => ({
   initialValues
 })
 
-const mapDispatchToProps = { signupAuth }
+const mapDispatchToProps = {
+  signupAuth
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(form)
+export default connect(mapStateToProps, mapDispatchToProps)(PageRegister)
