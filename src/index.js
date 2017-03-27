@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createBrowserHistory } from 'history'
-import { connectRouter, routerMiddleware } from 'connected-react-router'
+import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import { Provider } from 'react-redux'
 import { throttle, merge } from 'lodash'
 import { loadState, saveState } from './utils/LocalStorage'
+import { RouteMain } from './components/Route'
 import rootReducer, { initialStore } from './store'
-import App from './components/App'
 
 const preloadedState = merge(initialStore, loadState())
 const history = createBrowserHistory()
@@ -34,16 +34,18 @@ store.subscribe(throttle(() => {
 const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
-      <Component history={history} />
+      <ConnectedRouter history={history} >
+        <Component />
+      </ConnectedRouter>
     </Provider>,
     document.getElementById('root')
   )
 }
-render(App)
+render(RouteMain)
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
-    render(require('./components/App').default)
+  module.hot.accept('./components/Route', () => {
+    render(require('./components/Route').RouteMain)
   })
   module.hot.accept('./store', () => {
     store.replaceReducer(require('./store').default)
