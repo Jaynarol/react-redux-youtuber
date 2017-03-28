@@ -18,7 +18,7 @@ Debugbox.propTypes = {
   show: PropTypes.bool,
   input: PropTypes.shape({
     name: PropTypes.string,
-    value: PropTypes.bool
+    value: PropTypes.any
   })
 }
 

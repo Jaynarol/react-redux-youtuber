@@ -6,6 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { createBrowserHistory } from 'history'
 import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
 import { throttle, merge } from 'lodash'
 import { loadState, saveState } from './utils/LocalStorage'
 import { RouteMain } from './components/Route'
@@ -31,18 +32,21 @@ store.subscribe(throttle(() => {
   })
 }, 1000))
 
+const basename = `/${window.location.pathname.split('/')[1]}`
 const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history} >
-        <Component />
+        <BrowserRouter basename={basename} >
+          <Component />
+        </BrowserRouter>
       </ConnectedRouter>
     </Provider>,
     document.getElementById('root')
   )
 }
-render(RouteMain)
 
+render(RouteMain)
 if (module.hot) {
   module.hot.accept('./components/Route', () => {
     render(require('./components/Route').RouteMain)
