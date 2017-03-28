@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { FormGroup, Input, Label, UncontrolledTooltip } from 'reactstrap'
 
-const FieldCheckbox = ({ input, label, meta: { touched, submitting, error } }) => {
+const FieldCheckbox = ({ label, input, meta: { touched, submitting, error } }) => {
   const fieldId = `id-check-${input.name}`
   return (
     <FormGroup check className="clearfix" >
@@ -17,16 +17,28 @@ const FieldCheckbox = ({ input, label, meta: { touched, submitting, error } }) =
 }
 
 FieldCheckbox.propTypes = {
+  label: PropTypes.string.isRequired,
   input: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    value: PropTypes.bool.isRequired
-  }).isRequired,
-  label: PropTypes.string.isRequired,
+    value: PropTypes.any.isRequired
+  }),
   meta: PropTypes.shape({
-    touched: PropTypes.bool.isRequired,
-    submitting: PropTypes.bool.isRequired,
+    touched: PropTypes.bool,
+    submitting: PropTypes.bool,
     error: PropTypes.string
-  }).isRequired
+  })
+}
+
+FieldCheckbox.defaultProps = {
+  input: {
+    name: '',
+    value: false
+  },
+  meta: {
+    touched: false,
+    submitting: false,
+    error: null
+  }
 }
 
 export default FieldCheckbox

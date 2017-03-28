@@ -1,4 +1,4 @@
-/* eslint-disable global-require, no-underscore-dangle, import/no-extraneous-dependencies*/
+/* eslint-disable import/no-extraneous-dependencies,no-underscore-dangle,global-require */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import thunk from 'redux-thunk'

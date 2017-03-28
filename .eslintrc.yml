@@ -10,6 +10,7 @@ plugins:
   - jsx-a11y
   - import
 rules:
+  linebreak-style: ["error", "unix"]
   eol-last: "off"
   semi: ["error", "never"]
   class-methods-use-this: "off"
@@ -28,6 +29,6 @@ rules:
   }]
   jsx-a11y/no-static-element-interactions: "off"
   import/prefer-default-export: "off"
+  import/no-extraneous-dependencies: ["error", {"devDependencies": ["**/__tests__/*.js", "**/__stories__/*.js"]}]
   react/jsx-filename-extension: ["warn", { "extensions": [".js", ".jsx"] }]
-  react/prefer-stateless-function: "off"
   react/require-extension: "off"

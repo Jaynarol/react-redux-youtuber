@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react'
-import { Alert, Button, Card, CardText, CardTitle, Col, Form, FormGroup, Row } from 'reactstrap'
-import { Link } from 'react-router-dom'
-import { Field } from 'redux-form'
-import { FieldInput, FieldCheckbox, FieldSubmit } from '../../Field'
+import { Alert, Button, ButtonGroup, Card, CardText, CardTitle, Col, Form, FormGroup, Row } from 'reactstrap'
+import { Field as FieldReduxForm } from 'redux-form'
+import { Link as LinkRouter } from 'react-router-dom'
+import { FieldInput, FieldCheckbox, Debugbox } from '../../Field'
 import loading from '../../_assets_/imgs/loading.svg'
+import style from './_assets_/style.css'
 
-const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, signupAuth, handleSubmit }) => (
-  <Row style={{ marginTop: '50px' }}>
+const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, handleSubmit, signupAuth, Field, Link }) => (
+  <Row className={style.box} >
     <Col sm={{ size: 6, offset: 3 }}>
       <Card block>
-        <CardTitle style={{ marginBottom: '20px' }} >Register</CardTitle>
+        <CardTitle className={style.title} >Register</CardTitle>
         { submitFailed && !submitting &&
           <Alert color="danger">
             <strong>Oh snap!</strong> Something wrong.
@@ -20,7 +21,7 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, sign
             <Field component={FieldInput} name="email" label="Email" type="text" icon="@" />
             <Field component={FieldInput} name="pass" label="Password" type="password" icon="&#9919;" />
             <Field component={FieldInput} name="tryPass" label="Retry Password" type="password" icon="&#9919;" />
-            <Field component={FieldCheckbox} name="accepted" label="Accepted Policy" />
+            <Field component={FieldCheckbox} name="accepted" label="Accepted Policy" type="checkbox" />
             <hr />
             <FormGroup>
               { submitting ?
@@ -28,11 +29,13 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, sign
                 :
                 <Row>
                   <Col>
-                    <Link to="/login" >Login</Link>{' | '}
-                    <Link to="/" >Forgot password?</Link>
+                    <ButtonGroup size="sm" >
+                      <Button tag={Link} color="link" to="/login" >Login</Button>
+                      <Button tag={Link} color="link" to="/" >Forgot password?</Button>
+                    </ButtonGroup>
                   </Col>
                   <Col className="text-right" >
-                    <FieldSubmit label="Register" invalid={invalid} debug />
+                    <Button color="info" disabled={invalid} >Register</Button>
                   </Col>
                 </Row>
               }
@@ -49,6 +52,9 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, sign
           </div>
         }
       </Card>
+      <div className="text-right" >
+        <Field component={Debugbox} name="error" type="checkbox" show />
+      </div>
     </Col>
   </Row>
 )
@@ -59,8 +65,15 @@ PageRegister.propTypes = {
   submitting: PropTypes.bool.isRequired,
   submitSucceeded: PropTypes.bool.isRequired,
   submitFailed: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   signupAuth: PropTypes.func.isRequired,
-  handleSubmit: PropTypes.func.isRequired
+  Field: PropTypes.func,
+  Link: PropTypes.func
+}
+
+PageRegister.defaultProps = {
+  Field: FieldReduxForm,
+  Link: LinkRouter
 }
 
 export default PageRegister

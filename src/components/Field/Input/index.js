@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { FormGroup, Input, InputGroup, InputGroupAddon, UncontrolledTooltip } from 'reactstrap'
 
-const FieldInput = ({ input, label, type, icon, meta: { touched, submitting, error } }) => {
+const FieldInput = ({ label, type, icon, input, meta: { touched, submitting, error } }) => {
   const fieldId = `id-${type}-${input.name}`
   return (
     <FormGroup>
@@ -17,18 +17,31 @@ const FieldInput = ({ input, label, type, icon, meta: { touched, submitting, err
 }
 
 FieldInput.propTypes = {
-  input: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
-  }).isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  input: PropTypes.shape({
+    name: PropTypes.string,
+    value: PropTypes.string
+  }),
   meta: PropTypes.shape({
-    touched: PropTypes.bool.isRequired,
-    submitting: PropTypes.bool.isRequired,
+    touched: PropTypes.bool,
+    submitting: PropTypes.bool,
     error: PropTypes.string
-  }).isRequired
+  })
+}
+
+FieldInput.defaultProps = {
+  icon: '',
+  input: {
+    name: '',
+    value: ''
+  },
+  meta: {
+    touched: false,
+    submitting: false,
+    error: null
+  }
 }
 
 export default FieldInput
