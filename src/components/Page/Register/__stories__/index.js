@@ -19,19 +19,15 @@ storiesOf('Page -> Register', module)
   .addWithInfo('default', 'form when first loaded', () => (
     <PageRegister {...props} />
   ))
-  .addWithInfo('invalid', 'form had invalid field', () => {
-    const invalidProps = { ...props, invalid: true }
-    return <PageRegister {...invalidProps} />
-  })
-  .addWithInfo('submitting', 'form when submitting', () => {
-    const submittingProps = { ...props, submitting: true }
-    return <PageRegister {...submittingProps} />
-  })
-  .addWithInfo('submit Succeeded', 'form when submit Succeeded', () => {
-    const submitSucceededProps = { ...props, submitSucceeded: true }
-    return <PageRegister {...submitSucceededProps} />
-  })
-  .addWithInfo('submit Failed', 'form when submit Failed', () => {
-    const submitFailedProps = { ...props, submitFailed: true }
-    return <PageRegister {...submitFailedProps} />
-  })
+  .addWithInfo('invalid', 'form had invalid field', () => (
+    <PageRegister {...props} invalid />
+  ))
+  .addWithInfo('submitting', 'form when submitting', () => (
+    <PageRegister {...props} submitting />
+  ))
+  .addWithInfo('submit Succeeded', 'form when submit Succeeded', () => (
+    <PageRegister {...props} submitSucceeded />
+  ))
+  .addWithInfo('submit Failed', 'form when submit Failed', () => (
+    <PageRegister {...props} submitFailed />
+  ))

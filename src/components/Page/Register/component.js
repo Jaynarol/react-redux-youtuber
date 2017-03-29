@@ -61,17 +61,23 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, hand
 
 
 PageRegister.propTypes = {
-  invalid: PropTypes.bool.isRequired,
-  submitting: PropTypes.bool.isRequired,
-  submitSucceeded: PropTypes.bool.isRequired,
-  submitFailed: PropTypes.bool.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  signupAuth: PropTypes.func.isRequired,
+  invalid: PropTypes.bool,
+  submitting: PropTypes.bool,
+  submitSucceeded: PropTypes.bool,
+  submitFailed: PropTypes.bool,
+  handleSubmit: PropTypes.func,
+  signupAuth: PropTypes.func,
   Field: PropTypes.func,
   Link: PropTypes.func
 }
 
 PageRegister.defaultProps = {
+  invalid: false,
+  submitting: false,
+  submitSucceeded: false,
+  submitFailed: false,
+  handleSubmit: () => {},
+  signupAuth: () => {},
   Field: FieldReduxForm,
   Link: LinkRouter
 }
