@@ -8,5 +8,6 @@ function loadStories() {
   req.keys().forEach((filename) => req(filename))
 }
 
+addDecorator(window.autoResponsiveWithMobileTitle)
 setAddon(infoAddon)
 configure(loadStories, module)

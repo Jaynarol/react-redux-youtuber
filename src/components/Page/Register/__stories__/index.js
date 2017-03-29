@@ -15,6 +15,7 @@ const props = {
 }
 
 storiesOf('Page -> Register', module)
+  .addDecorator(story => <div style={{ width: '95%' }}>{story()}</div>)
   .addWithInfo('default', 'form when first loaded', () => (
     <PageRegister {...props} />
   ))

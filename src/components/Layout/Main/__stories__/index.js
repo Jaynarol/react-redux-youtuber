@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/href-no-hash,jsx-a11y/anchor-has-content */
 import React from 'react'
-import { storiesOf, action, addDecorator } from '@kadira/storybook'
+import { storiesOf, action } from '@kadira/storybook'
 import LayoutMain from '../component'
 
 const props = {
@@ -9,8 +9,6 @@ const props = {
   toggleNav: () => action('toggle'),
   Link: fieldProps => <a href="#" {...fieldProps} />
 }
-
-addDecorator(story => window.responsive(story))
 
 storiesOf('Layout -> Main', module)
   .addWithInfo('desktop', '', () => (
