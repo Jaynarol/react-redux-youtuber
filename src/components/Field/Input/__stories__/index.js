@@ -7,14 +7,7 @@ const props = {
   type: 'text',
   icon: String.fromCharCode(9829),
   input: {
-    name: '',
-    value: '',
-    onChange: () => action('change text')
-  },
-  meta: {
-    touched: false,
-    submitting: false,
-    error: null
+    onChange: action('change text')
   }
 }
 
@@ -25,15 +18,12 @@ storiesOf('Field -> Input', module)
   .addWithInfo('default', '', () => (
     <FieldInput {...props} />
   ))
-  .addWithInfo('typing', '', () => {
-    const newProps = { ...props, input: { ...props.input, value: 'typing some text' } }
-    return <FieldInput {...newProps} />
-  })
-  .addWithInfo('submitting', '', () => {
-    const newProps = { ...props, meta: { ...props.meta, submitting: true } }
-    return <FieldInput {...newProps} />
-  })
-  .addWithInfo('invalid', '', () => {
-    const newProps = { ...props, meta: { ...props.meta, touched: true, error: 'invalid some text' } }
-    return <FieldInput {...newProps} />
-  })
+  .addWithInfo('typing', '', () => (
+    <FieldInput {...props} input={{ ...props.input, value: 'typing some text' }} />
+  ))
+  .addWithInfo('submitting', '', () => (
+    <FieldInput {...props} meta={{ submitting: true }} />
+  ))
+  .addWithInfo('invalid', '', () => (
+    <FieldInput {...props} meta={{ touched: true, error: 'invalid some text' }} />
+  ))

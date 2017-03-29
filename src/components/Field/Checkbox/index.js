@@ -19,8 +19,8 @@ const FieldCheckbox = ({ label, input, meta: { touched, submitting, error } }) =
 FieldCheckbox.propTypes = {
   label: PropTypes.string.isRequired,
   input: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    value: PropTypes.any.isRequired
+    name: PropTypes.string,
+    value: PropTypes.any
   }),
   meta: PropTypes.shape({
     touched: PropTypes.bool,

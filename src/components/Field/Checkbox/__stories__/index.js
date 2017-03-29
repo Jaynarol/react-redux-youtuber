@@ -3,16 +3,7 @@ import { storiesOf } from '@kadira/storybook'
 import FieldCheckbox from '../'
 
 const props = {
-  label: 'simple checkbox',
-  input: {
-    name: '',
-    value: false
-  },
-  meta: {
-    touched: false,
-    submitting: false,
-    error: null
-  }
+  label: 'simple checkbox'
 }
 
 storiesOf('Field -> Checkbox', module)
@@ -20,15 +11,12 @@ storiesOf('Field -> Checkbox', module)
   .addWithInfo('default', () => (
     <FieldCheckbox {...props} />
   ))
-  .addWithInfo('checked', () => {
-    const newProps = { ...props, input: { ...props.input, value: true } }
-    return <FieldCheckbox {...newProps} />
-  })
-  .addWithInfo('submitting', '', () => {
-    const newProps = { ...props, meta: { ...props.meta, submitting: true } }
-    return <FieldCheckbox {...newProps} />
-  })
-  .addWithInfo('invalid', '', () => {
-    const newProps = { ...props, meta: { ...props.meta, touched: true, error: 'required' } }
-    return <FieldCheckbox {...newProps} />
-  })
+  .addWithInfo('checked', () => (
+    <FieldCheckbox {...props} input={{ value: true }} />
+  ))
+  .addWithInfo('submitting', '', () => (
+    <FieldCheckbox {...props} meta={{ submitting: true }} />
+  ))
+  .addWithInfo('invalid', '', () => (
+    <FieldCheckbox {...props} meta={{ touched: true, error: 'required' }} />
+  ))

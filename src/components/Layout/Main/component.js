@@ -33,12 +33,13 @@ const LayoutMain = ({ children, isOpen, toggleNav, Link }) => (
 
 LayoutMain.propTypes = {
   children: PropTypes.node.isRequired,
-  isOpen: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool,
   toggleNav: PropTypes.func.isRequired,
   Link: PropTypes.func
 }
 
 LayoutMain.defaultProps = {
+  isOpen: false,
   Link: LinkRouter
 }
 
