@@ -14,7 +14,7 @@ const props = {
   Link: fieldProps => <a href="#" {...fieldProps}>{fieldProps.children}</a>
 }
 
-storiesOf('<PageRegister />', module)
+storiesOf('Page -> Register', module)
   .addWithInfo('default', 'form when first loaded', () => (
     <PageRegister {...props} />
   ))

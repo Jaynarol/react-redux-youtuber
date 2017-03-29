@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
-import { Link } from 'react-router-dom'
+import { Link as LinkRouter } from 'react-router-dom'
 import { Collapse, Container, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../../_assets_/style.css'
 import logo from './_assets_/logo.svg'
 import style from './_assets_/style.css'
 
-const LayoutMain = ({ children, isOpen, toggleNav }) => (
+const LayoutMain = ({ children, isOpen, toggleNav, Link }) => (
   <Container>
     <Navbar color="faded" light toggleable>
       <NavbarToggler right onClick={toggleNav} />
@@ -34,7 +34,12 @@ const LayoutMain = ({ children, isOpen, toggleNav }) => (
 LayoutMain.propTypes = {
   children: PropTypes.node.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  toggleNav: PropTypes.func.isRequired
+  toggleNav: PropTypes.func.isRequired,
+  Link: PropTypes.func
+}
+
+LayoutMain.defaultProps = {
+  Link: LinkRouter
 }
 
 export default LayoutMain

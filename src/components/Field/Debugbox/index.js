@@ -7,7 +7,7 @@ const Debugbox = ({ show, input }) => (
       <span>
         <br />
         <Label check style={{ color: '#ddd' }} >
-          <Input {...input} checked={input.value} type="checkbox" />{' '}need failed response
+          <Input {...input} defaultChecked={input.value} type="checkbox" />{' '}need failed response
         </Label>
       </span>
     }

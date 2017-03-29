@@ -1,0 +1,9 @@
+<script>
+  window.responsive = function(story){
+    const frame = parent.document.getElementById('storybook-preview-iframe')
+    frame.parentNode.parentNode.style.textAlign = 'center';
+    frame.style.width = story().props.context.story.includes('mobile') ? '360px' : '100%';
+    frame.style.height = '100%';
+    return story()
+  }
+</script>

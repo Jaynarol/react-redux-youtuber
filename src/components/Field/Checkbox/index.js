@@ -6,12 +6,12 @@ const FieldCheckbox = ({ label, input, meta: { touched, submitting, error } }) =
   return (
     <FormGroup check className="clearfix" >
       <Label check id={fieldId} className="float-right" >
-        <Input {...input} checked={input.value} type="checkbox" disabled={submitting} />{' '}
+        <Input {...input} defaultChecked={input.value} type="checkbox" disabled={submitting} />{' '}
         {label}
       </Label>
       <UncontrolledTooltip placement="left" isOpen={touched && !!error} target={fieldId} className="field-input-tooltip" >
         {error}
-      </UncontrolledTooltip >
+      </UncontrolledTooltip>
     </FormGroup>
   )
 }
