@@ -4,8 +4,8 @@ import { storiesOf, action } from '@kadira/storybook'
 import PageRegister from '../component'
 
 const props = {
+  handleSubmit: func => () => func(),
   signupAuth: action('signupAuth'),
-  handleSubmit: () => action('handleSubmit'),
   Field: fieldProps => <fieldProps.component {...fieldProps} />,
   Link: fieldProps => <a href="#" {...fieldProps}>{fieldProps.children}</a>
 }

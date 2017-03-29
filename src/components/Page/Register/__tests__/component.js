@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import PageRegister from '../component'
 
 const expectDisabled = exDisabled => component => selectors => {
@@ -22,9 +22,13 @@ const expectNotShow = component => selectors => {
 
 describe('', () => {
   let component
+  const defaultProps = {
+    handleSubmit: func => () => func(),
+    signupAuth: () => null
+  }
 
   beforeEach(() => {
-    component = shallow(<PageRegister />)
+    component = shallow(<PageRegister {...defaultProps} />)
   })
 
   it('default', () => {
@@ -101,16 +105,15 @@ describe('', () => {
   })
 
   it('submited should be call handleSubmit => signupAuth', () => {
-    const stubSignupAuth = jest.fn()
-    const stubHandleSubmit = jest.fn(func => func('fake'))
+    const spySignupAuth = jest.fn()
+    const spyHandleSubmit = jest.fn(func => () => func('fake'))
 
-    component = shallow(<PageRegister handleSubmit={stubHandleSubmit} signupAuth={stubSignupAuth} />)
-    component.find('Button[children="Register"]').simulate('click')
+    component = shallow(<PageRegister handleSubmit={spyHandleSubmit} signupAuth={spySignupAuth} />)
+    component.find('Form').first().simulate('submit')
 
-    expect(stubHandleSubmit).toHaveBeenCalledTimes(1)
-    expect(stubHandleSubmit).toHaveBeenCalledWith(stubSignupAuth)
-    expect(stubSignupAuth).toHaveBeenCalledTimes(1)
-    expect(stubSignupAuth).toHaveBeenCalledWith('fake')
+    expect(spyHandleSubmit).toHaveBeenCalledTimes(1)
+    expect(spyHandleSubmit).toHaveBeenCalledWith(spySignupAuth)
+    expect(spySignupAuth).toHaveBeenCalledTimes(1)
+    expect(spySignupAuth).toHaveBeenCalledWith('fake')
   })
-
 })
