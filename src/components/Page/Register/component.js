@@ -76,8 +76,8 @@ PageRegister.defaultProps = {
   submitting: false,
   submitSucceeded: false,
   submitFailed: false,
-  handleSubmit: () => {},
-  signupAuth: () => {},
+  handleSubmit: func => func(),
+  signupAuth: () => null,
   Field: FieldReduxForm,
   Link: LinkRouter
 }

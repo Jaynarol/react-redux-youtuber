@@ -102,13 +102,15 @@ describe('', () => {
 
   it('submited should be call handleSubmit => signupAuth', () => {
     const stubSignupAuth = jest.fn()
-    const stubHandleSubmit = jest.fn(func => func())
+    const stubHandleSubmit = jest.fn(func => func('fake'))
 
     component = shallow(<PageRegister handleSubmit={stubHandleSubmit} signupAuth={stubSignupAuth} />)
-    component.find('Form').simulate('submit')
+    component.find('Button[children="Register"]').simulate('click')
 
     expect(stubHandleSubmit).toHaveBeenCalledTimes(1)
     expect(stubHandleSubmit).toHaveBeenCalledWith(stubSignupAuth)
     expect(stubSignupAuth).toHaveBeenCalledTimes(1)
+    expect(stubSignupAuth).toHaveBeenCalledWith('fake')
   })
+
 })
