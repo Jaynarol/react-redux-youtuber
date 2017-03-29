@@ -6,7 +6,7 @@ const expectDisabled = exDisabled => component => selectors => {
   selectors.forEach(selector => {
     const element = component.find(selector)
     expect(element).toHaveLength(1)
-    const disabled = element.first().props().disabled
+    const disabled = element.first().prop('disabled')
     if (disabled) {
       expect(disabled).toBe(exDisabled)
     }
@@ -98,5 +98,17 @@ describe('', () => {
       'img[alt="loading"]]',
       'CardText'
     ])
+  })
+
+  it('submited should be call handleSubmit => signupAuth', () => {
+    const stubSignupAuth = jest.fn()
+    const stubHandleSubmit = jest.fn(func => func())
+
+    component = shallow(<PageRegister handleSubmit={stubHandleSubmit} signupAuth={stubSignupAuth} />)
+    component.find('Form').simulate('submit')
+
+    expect(stubHandleSubmit).toHaveBeenCalledTimes(1)
+    expect(stubHandleSubmit).toHaveBeenCalledWith(stubSignupAuth)
+    expect(stubSignupAuth).toHaveBeenCalledTimes(1)
   })
 })
