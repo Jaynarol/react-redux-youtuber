@@ -5,7 +5,7 @@ import PageRegister from '../component'
 
 const props = {
   signupAuth: action('signupAuth'),
-  handleSubmit: action('handleSubmit'),
+  handleSubmit: () => action('handleSubmit'),
   Field: fieldProps => <fieldProps.component {...fieldProps} />,
   Link: fieldProps => <a href="#" {...fieldProps}>{fieldProps.children}</a>
 }
