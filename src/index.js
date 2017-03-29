@@ -9,7 +9,7 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { throttle, merge } from 'lodash'
 import { loadState, saveState } from './utils/LocalStorage'
-import { RouteMain } from './components/Route'
+import { RouteMain } from './routes'
 import rootReducer, { initialStore } from './store'
 
 const preloadedState = merge(initialStore, loadState())
@@ -48,8 +48,8 @@ const render = Component => {
 
 render(RouteMain)
 if (module.hot) {
-  module.hot.accept('./components/Route', () => {
-    render(require('./components/Route').RouteMain)
+  module.hot.accept('./routes', () => {
+    render(require('./routes').RouteMain)
   })
   module.hot.accept('./store', () => {
     store.replaceReducer(require('./store').default)
