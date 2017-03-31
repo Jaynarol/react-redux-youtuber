@@ -28,7 +28,7 @@ const PageLogin = ({ invalid, submitting, submitFailed, handleSubmit, signinAuth
                 <Link to="/register" >Register</Link>{' | '}
                 <Link to="/" >Forgot password?</Link>
               </small>
-              <Button className="float-right" color="info" disabled={invalid} >Login</Button>
+              <Button type="submit" className="float-right" color="info" disabled={invalid} >Login</Button>
             </FormGroup>
           }
         </Form>
