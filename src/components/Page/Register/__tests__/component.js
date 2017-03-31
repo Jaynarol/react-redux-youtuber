@@ -1,114 +1,113 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import PageRegister from '../component'
 
-const expectDisabled = exDisabled => component => selectors => {
-  selectors.forEach(selector => {
-    const element = component.find(selector)
-    expect(element).toHaveLength(1)
-    const disabled = element.first().prop('disabled')
-    if (disabled) {
-      expect(disabled).toBe(exDisabled)
-    }
-  })
-}
-const expectShowAndEnable = expectDisabled(false)
-const expectShowButDisabled = expectDisabled(true)
-const expectNotShow = component => selectors => {
-  selectors.forEach(selector => {
-    expect(component.find(selector)).toHaveLength(0)
-  })
-}
-
 describe('', () => {
-  let component
-  const defaultProps = {
-    handleSubmit: func => () => func(),
-    signupAuth: () => null
+  const setup = (props = {}) => {
+    const defaultProps = {
+      handleSubmit: func => () => func(),
+      signupAuth: () => true
+    }
+    const component = shallow(<PageRegister {...defaultProps} />)
+    component.setProps(props)
+    return {
+      form: component.find('Form'),
+      email: component.find('Field[name="email"]'),
+      pass: component.find('Field[name="pass"]'),
+      tryPass: component.find('Field[name="tryPass"]'),
+      accepted: component.find('Field[name="accepted"]'),
+      submit: component.find('Form g[tag="button"]'),
+      loader: component.find('img[alt="loading"]]'),
+      alertBox: component.find('Alert'),
+      succesBox: component.find('CardText')
+    }
   }
 
-  beforeEach(() => {
-    component = shallow(<PageRegister {...defaultProps} />)
+  it('default', () => {
+    const fields = setup()
+    expect(fields.form).toHaveLength(1)
+    expect(fields.email).toHaveLength(1)
+    expect(fields.pass).toHaveLength(1)
+    expect(fields.tryPass).toHaveLength(1)
+    expect(fields.accepted).toHaveLength(1)
+
+    expect(fields.submit).toHaveLength(1)
+    expect(fields.submit.prop('disabled')).toBe(false)
+
+    expect(fields.loader).toHaveLength(0)
+    expect(fields.alertBox).toHaveLength(0)
+    expect(fields.succesBox).toHaveLength(0)
   })
 
-  it('default', () => {
-    expectShowAndEnable(component)([
-      'Form',
-      'Field[name="email"]',
-      'Field[name="pass"]',
-      'Field[name="tryPass"]',
-      'Field[name="accepted"]',
-      'Button[children="Register"]'
-    ])
-    expectNotShow(component)([
-      'Alert',
-      'img[alt="loading"]]',
-      'CardText'
-    ])
+  it('invalid', () => {
+    const fields = setup({ invalid: true })
+
+    expect(fields.form).toHaveLength(1)
+    expect(fields.email).toHaveLength(1)
+    expect(fields.pass).toHaveLength(1)
+    expect(fields.tryPass).toHaveLength(1)
+    expect(fields.accepted).toHaveLength(1)
+
+    expect(fields.submit).toHaveLength(1)
+    expect(fields.submit.prop('disabled')).toBe(true)
+
+    expect(fields.loader).toHaveLength(0)
+    expect(fields.alertBox).toHaveLength(0)
+    expect(fields.succesBox).toHaveLength(0)
   })
 
   it('submitting', () => {
-    component.setProps({ submitting: true })
+    const fields = setup({ submitting: true })
 
-    expectShowAndEnable(component)([
-      'Form',
-      'img[alt="loading"]]'
-    ])
-    expectShowButDisabled(component)([
-      'Field[name="email"]',
-      'Field[name="pass"]',
-      'Field[name="tryPass"]',
-      'Field[name="accepted"]'
-    ])
-    expectNotShow(component)([
-      'Button[children="Register"]',
-      'Alert',
-      'CardText'
-    ])
+    expect(fields.form).toHaveLength(1)
+    expect(fields.email).toHaveLength(1)
+    expect(fields.pass).toHaveLength(1)
+    expect(fields.tryPass).toHaveLength(1)
+    expect(fields.accepted).toHaveLength(1)
+    expect(fields.loader).toHaveLength(1)
+
+    expect(fields.submit).toHaveLength(0)
+    expect(fields.alertBox).toHaveLength(0)
+    expect(fields.succesBox).toHaveLength(0)
   })
 
   it('submitSucceeded', () => {
-    component.setProps({ submitSucceeded: true })
+    const fields = setup({ submitSucceeded: true })
 
-    expectShowAndEnable(component)([
-      'CardText'
-    ])
-    expectNotShow(component)([
-      'Form',
-      'Field[name="email"]',
-      'Field[name="pass"]',
-      'Field[name="tryPass"]',
-      'Field[name="accepted"]',
-      'Button[children="Register"]',
-      'Alert'
-    ])
+    expect(fields.succesBox).toHaveLength(1)
+
+    expect(fields.form).toHaveLength(0)
+    expect(fields.email).toHaveLength(0)
+    expect(fields.pass).toHaveLength(0)
+    expect(fields.tryPass).toHaveLength(0)
+    expect(fields.accepted).toHaveLength(0)
+    expect(fields.loader).toHaveLength(0)
+    expect(fields.submit).toHaveLength(0)
+    expect(fields.alertBox).toHaveLength(0)
   })
 
   it('submitFailed', () => {
-    component.setProps({ submitFailed: true })
+    const fields = setup({ submitFailed: true })
 
-    expectShowAndEnable(component)([
-      'Alert',
-      'Form',
-      'Field[name="email"]',
-      'Field[name="pass"]',
-      'Field[name="tryPass"]',
-      'Field[name="accepted"]'
-    ])
-    expectShowButDisabled(component)([
-      'Button[children="Register"]'
-    ])
-    expectNotShow(component)([
-      'img[alt="loading"]]',
-      'CardText'
-    ])
+    expect(fields.form).toHaveLength(1)
+    expect(fields.email).toHaveLength(1)
+    expect(fields.pass).toHaveLength(1)
+    expect(fields.tryPass).toHaveLength(1)
+    expect(fields.accepted).toHaveLength(1)
+    expect(fields.alertBox).toHaveLength(1)
+
+    expect(fields.submit).toHaveLength(1)
+    expect(fields.submit.prop('disabled')).toBe(false)
+
+    expect(fields.loader).toHaveLength(0)
+    expect(fields.succesBox).toHaveLength(0)
   })
 
   it('submited should be call handleSubmit => signupAuth', () => {
     const spySignupAuth = jest.fn()
     const spyHandleSubmit = jest.fn(func => () => func('fake'))
 
-    component = shallow(<PageRegister handleSubmit={spyHandleSubmit} signupAuth={spySignupAuth} />)
+    const component = shallow(<PageRegister handleSubmit={spyHandleSubmit} signupAuth={spySignupAuth} />)
     component.find('Form').first().simulate('submit')
 
     expect(spyHandleSubmit).toHaveBeenCalledTimes(1)

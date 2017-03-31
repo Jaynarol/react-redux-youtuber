@@ -2,6 +2,7 @@
 import React from 'react'
 import { storiesOf, action } from '@kadira/storybook'
 import PageLogin from '../component'
+import { Col, Container, Row } from 'reactstrap'
 
 const props = {
   handleSubmit: func => () => func(),
@@ -11,7 +12,7 @@ const props = {
 }
 
 storiesOf('Page -> Login', module)
-  .addDecorator(story => <div style={{ width: '95%' }}>{story()}</div>)
+  .addDecorator(story => <Container><Row><Col>{story()}</Col></Row></Container>)
   .addWithInfo('default', '', () => (
     <PageLogin {...props} />
   ))
