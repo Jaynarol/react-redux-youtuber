@@ -2,11 +2,11 @@ import { connect } from 'react-redux'
 import { signupAuth } from '../../../actions/auth'
 import form, { initialValues } from './form'
 
-const mapStateToProps = () => ({
+export const mapStateToProps = () => ({
   initialValues
 })
 
-const mapDispatchToProps = {
+export const mapDispatchToProps = {
   signupAuth
 }
 

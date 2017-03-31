@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import PageRegister from '../component'
 
-describe('', () => {
+describe('PageRegister Component', () => {
   const setup = (props = {}) => {
     const defaultProps = {
       handleSubmit: func => () => func(),
@@ -16,7 +16,7 @@ describe('', () => {
       pass: component.find('Field[name="pass"]'),
       tryPass: component.find('Field[name="tryPass"]'),
       accepted: component.find('Field[name="accepted"]'),
-      submit: component.find('Form g[tag="button"]'),
+      submit: component.find('Form [type="submit"]'),
       loader: component.find('img[alt="loading"]]'),
       alertBox: component.find('Alert'),
       succesBox: component.find('CardText')

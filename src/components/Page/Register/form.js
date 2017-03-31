@@ -6,16 +6,20 @@ export const initialValues = {
   email: 'example@domain.com',
   pass: 'password',
   tryPass: 'password',
-  accepted: true
+  accepted: true,
+  error: false
+}
+
+export const validates = {
+  email: [required, email],
+  pass: [required, minLength(8), maxLength(30)],
+  tryPass: [required, same('pass')],
+  accepted: [required],
+  error: []
 }
 
 export default reduxForm({
   form: 'register',
   destroyOnUnmount: true,
-  validate: Validator({
-    email: [required, email],
-    pass: [required, minLength(8), maxLength(30)],
-    tryPass: [required, same('pass')],
-    accepted: [required]
-  })
+  validate: Validator(validates)
 })(component)

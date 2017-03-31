@@ -30,7 +30,7 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, hand
                   <Link to="/login" >Login</Link>{' | '}
                   <Link to="/" >Forgot password?</Link>
                 </small>
-                <Button className="float-right" color="info" disabled={invalid} >Register</Button>
+                <Button type="submit" className="float-right" color="info" disabled={invalid} >Register</Button>
               </FormGroup>
             }
           </Form>
