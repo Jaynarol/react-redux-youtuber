@@ -1,11 +1,16 @@
 import { initialStore } from '../store'
+import TYPE from '../actions/types'
 
-const authReducer = (auth = initialStore.auth, action) => {
+export default (auth = initialStore.auth, action) => {
   switch (action.type) {
+    case TYPE.AUTH.SIGNIN: {
+      return {
+        email: action.payload.email,
+        token: action.payload.token
+      }
+    }
     default: {
       return auth
     }
   }
 }
-
-export default authReducer

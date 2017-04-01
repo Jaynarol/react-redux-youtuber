@@ -10,13 +10,14 @@ import { BrowserRouter } from 'react-router-dom'
 import { throttle, merge } from 'lodash'
 import { loadState, saveState } from './utils/LocalStorage'
 import { RouteMain } from './routes'
-import rootReducer, { initialStore } from './store'
+import { rootReducers } from './reducers'
+import { initialStore } from './store'
 
 const preloadedState = merge(initialStore, loadState())
 const history = createBrowserHistory()
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(
-  connectRouter(history)(rootReducer),
+  connectRouter(history)(rootReducers),
   preloadedState,
   composeEnhancers(
     applyMiddleware(
@@ -51,7 +52,7 @@ if (module.hot) {
   module.hot.accept('./routes', () => {
     render(require('./routes').RouteMain)
   })
-  module.hot.accept('./store', () => {
-    store.replaceReducer(require('./store').default)
+  module.hot.accept('./reducers', () => {
+    store.replaceReducer(require('./reducers').rootReducers)
   })
 }
