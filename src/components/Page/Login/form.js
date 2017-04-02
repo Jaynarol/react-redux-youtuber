@@ -5,15 +5,13 @@ import component from './component'
 export const initialValues = {
   email: 'example@domain.com',
   pass: 'password',
-  remember: true,
-  error: false
+  remember: true
 }
 
 export const validates = {
   email: [required, email],
   pass: [required, minLength(8), maxLength(30)],
-  remember: [],
-  error: []
+  remember: []
 }
 
 export default reduxForm({

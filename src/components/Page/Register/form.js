@@ -6,16 +6,14 @@ export const initialValues = {
   email: 'example@domain.com',
   pass: 'password',
   tryPass: 'password',
-  accepted: true,
-  error: false
+  accepted: true
 }
 
 export const validates = {
   email: [required, email],
   pass: [required, minLength(8), maxLength(30)],
   tryPass: [required, same('pass')],
-  accepted: [required],
-  error: []
+  accepted: [required]
 }
 
 export default reduxForm({

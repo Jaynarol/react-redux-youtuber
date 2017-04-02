@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import { Alert, Button, Card, CardText, CardTitle, Col, Form, FormGroup, Row } from 'reactstrap'
 import { Field as FieldReduxForm } from 'redux-form'
 import { Link as LinkRouter } from 'react-router-dom'
-import { FieldInput, FieldCheckbox, Debugbox } from '../../Field'
+import { FieldInput, FieldCheckbox } from '../../Field'
 import loading from '../../_assets_/imgs/loading.svg'
 
 const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, handleSubmit, signupAuth, Field, Link }) => (
@@ -45,9 +45,6 @@ const PageRegister = ({ invalid, submitting, submitSucceeded, submitFailed, hand
           </div>
         }
       </Card>
-      <div className="text-right" >
-        <Field component={Debugbox} name="error" type="checkbox" show />
-      </div>
     </Col>
   </Row>
 )

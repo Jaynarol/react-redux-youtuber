@@ -12,7 +12,7 @@ storiesOf('Field -> Checkbox', module)
     <FieldCheckbox {...props} />
   ))
   .addWithInfo('checked', () => (
-    <FieldCheckbox {...props} input={{ value: true }} />
+    <FieldCheckbox {...props} input={{ defaultChecked: true }} />
   ))
   .addWithInfo('submitting', '', () => (
     <FieldCheckbox {...props} meta={{ submitting: true }} />

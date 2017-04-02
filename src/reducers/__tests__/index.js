@@ -6,7 +6,7 @@ describe('rootReducers', () => {
     const keyReducer = Object.keys(reducers)
 
     fs.readdirSync('src/reducers')
-      .filter(name => name.includes('.js') && !name.includes('index'))
+      .filter(name => name !== 'index.js' && name.includes('.js'))
       .map(name => name.split('.')[0])
       .forEach(name => {
         expect(keyReducer).toContain(name)

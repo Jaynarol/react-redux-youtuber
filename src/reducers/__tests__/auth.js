@@ -4,10 +4,7 @@ import { initialStore } from '../../store'
 
 describe('Auth Reducer', () => {
   it(TYPE.AUTH.SIGNIN, () => {
-    const currentState = {
-      email: '',
-      token: ''
-    }
+    const currentState = initialStore.auth
     const nextState = {
       email: 'some@email.com',
       token: 'sometoken'
