@@ -12,7 +12,7 @@ const PageLogin = ({ invalid, submitting, submitFailed, handleSubmit, signinAuth
         <CardTitle style={{ marginBottom: '30px' }} >Sign in</CardTitle>
         { submitFailed &&
           <Alert color="danger">
-            <strong>Login Failed!</strong> Email or Pass wrong
+            <strong>Login Failed!</strong>
           </Alert>
         }
         <Form onSubmit={handleSubmit(signinAuth)} >

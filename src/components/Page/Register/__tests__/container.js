@@ -3,13 +3,13 @@ import { signupAuth } from '../../../../actions/auth'
 
 describe('PageRegister Container', () => {
   it('mapStateToProps', () => {
-    const keyMapStateToProps = Object.keys(mapStateToProps())
-    const expectedKey = ['initialValues']
+    const keyProps = Object.keys(mapStateToProps())
 
-    expect(keyMapStateToProps).toEqual(expectedKey)
+    expect(keyProps).toEqual(['initialValues'])
   })
 
   it('mapDispatchToProps', () => {
-    expect(mapDispatchToProps.signupAuth === signupAuth).toBe(true)
+    expect(Object.keys(mapDispatchToProps)).toHaveLength(1)
+    expect(mapDispatchToProps.signupAuth).toBe(signupAuth)
   })
 })

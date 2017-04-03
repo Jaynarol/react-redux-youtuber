@@ -11,8 +11,8 @@ describe('FieldCheckbox', () => {
     component.setProps(props)
 
     return {
-      label: component.find('Label'),
-      checkbox: component.find('Label [type="checkbox"]'),
+      label: component.find('[tag="label"]'),
+      checkbox: component.find('[type="checkbox"]'),
       tooltip: component.find('UncontrolledTooltip')
     }
   }

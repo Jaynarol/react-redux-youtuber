@@ -11,7 +11,7 @@ describe('FieldInput', () => {
     component.setProps(props)
 
     return {
-      input: component.find('InputGroup [placeholder]'),
+      input: component.find('[placeholder]'),
       tooltip: component.find('UncontrolledTooltip')
     }
   }

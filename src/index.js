@@ -33,12 +33,12 @@ store.subscribe(throttle(() => {
   })
 }, 1000))
 
-const basename = `/${window.location.pathname.split('/')[1]}`
+//const basename = `/${window.location.pathname.split('/')[1]}`
 const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
       <ConnectedRouter history={history} >
-        <BrowserRouter basename={basename} >
+        <BrowserRouter>
           <Component />
         </BrowserRouter>
       </ConnectedRouter>

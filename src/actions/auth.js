@@ -1,5 +1,6 @@
 import { SubmissionError } from 'redux-form'
 import Server from '../utils/Server'
+import TYPE from './types'
 
 export const signupAuth = ({ email, pass }) => () => (
   Server.postRegister(email, pass)
@@ -9,5 +10,17 @@ export const signupAuth = ({ email, pass }) => () => (
         }
         return true
       })
+)
 
+export const signinAuth = ({ email, pass, remember }) => dispatch => (
+  Server.postLogin(email, pass, remember)
+    .then(({ success, message, token }) => {
+      if (!success) {
+        throw new SubmissionError(message)
+      }
+      return dispatch({
+        type: TYPE.AUTH.SIGNIN,
+        payload: { email, token }
+      })
+    })
 )

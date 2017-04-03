@@ -10,16 +10,17 @@ describe('PageRegister Component', () => {
     }
     const component = shallow(<PageRegister {...defaultProps} />)
     component.setProps(props)
+
     return {
-      form: component.find('Form'),
+      form: component.find('[tag="form"]'),
       email: component.find('Field[name="email"]'),
       pass: component.find('Field[name="pass"]'),
       tryPass: component.find('Field[name="tryPass"]'),
       accepted: component.find('Field[name="accepted"]'),
-      submit: component.find('Form [type="submit"]'),
+      submit: component.find('[type="submit"]'),
       loader: component.find('img[alt="loading"]]'),
-      alertBox: component.find('Alert'),
-      succesBox: component.find('CardText')
+      alertBox: component.find('[color="danger"]'),
+      succesBox: component.find('[color="secondary"]')
     }
   }
 
@@ -108,7 +109,7 @@ describe('PageRegister Component', () => {
     const spyHandleSubmit = jest.fn(func => () => func('fake'))
 
     const component = shallow(<PageRegister handleSubmit={spyHandleSubmit} signupAuth={spySignupAuth} />)
-    component.find('Form').first().simulate('submit')
+    component.find('[tag="form"]').simulate('submit')
 
     expect(spyHandleSubmit).toHaveBeenCalledTimes(1)
     expect(spyHandleSubmit).toHaveBeenCalledWith(spySignupAuth)

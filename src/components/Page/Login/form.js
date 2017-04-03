@@ -1,6 +1,6 @@
 import { reduxForm } from 'redux-form'
 import Validator, { required, email, minLength, maxLength } from '../../../utils/Validate'
-import component from './component'
+import compose from './compose'
 
 export const initialValues = {
   email: 'example@domain.com',
@@ -18,4 +18,4 @@ export default reduxForm({
   form: 'login',
   destroyOnUnmount: true,
   validate: Validator(validates)
-})(component)
+})(compose)

@@ -10,13 +10,14 @@ describe('PageLogin Component', () => {
     }
     const component = shallow(<PageLogin {...defaultProps} />)
     component.setProps(props)
+
     return {
-      form: component.find('Form'),
+      form: component.find('[tag="form"]'),
       email: component.find('Field[name="email"]'),
       pass: component.find('Field[name="pass"]'),
       remember: component.find('Field[name="remember"]'),
-      submit: component.find('Form [type="submit"]'),
-      alertBox: component.find('Alert'),
+      submit: component.find('[type="submit"]'),
+      alertBox: component.find('[color="danger"]'),
       loader: component.find('img[alt="loading"]')
     }
   }
