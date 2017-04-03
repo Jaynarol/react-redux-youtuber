@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf, action } from '@kadira/storybook'
-import FieldInput from '../'
+import FieldInput from '../component'
 
 const props = {
   label: 'some label',
@@ -18,8 +18,11 @@ storiesOf('Field -> Input', module)
   .addWithInfo('default', '', () => (
     <FieldInput {...props} />
   ))
-  .addWithInfo('typing', '', () => (
+  .addWithInfo('type text', '', () => (
     <FieldInput {...props} input={{ ...props.input, value: 'typing some text' }} />
+  ))
+  .addWithInfo('type password', '', () => (
+    <FieldInput {...props} type="password" input={{ ...props.input, value: 'typing some text' }} />
   ))
   .addWithInfo('submitting', '', () => (
     <FieldInput {...props} meta={{ submitting: true }} />

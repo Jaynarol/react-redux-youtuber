@@ -1,7 +1,8 @@
-import Component from '../'
+import Index from '../'
+import Container from '../container'
 
 describe('PageRegister Wrapper', () => {
   it('wrapper', () => {
-    expect(Component.displayName).toBe('Connect(ReduxForm)')
+    expect(Index).toBe(Container)
   })
 })

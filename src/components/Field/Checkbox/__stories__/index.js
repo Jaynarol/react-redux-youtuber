@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@kadira/storybook'
-import FieldCheckbox from '../'
+import FieldCheckbox from '../component'
 
 const props = {
   label: 'simple checkbox'
