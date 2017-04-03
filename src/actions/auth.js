@@ -24,3 +24,9 @@ export const signinAuth = ({ email, pass, remember }) => dispatch => (
       })
     })
 )
+
+
+export const signoutAuth = () => ({
+  type: TYPE.AUTH.SIGNOUT
+})
+

@@ -1,6 +1,7 @@
 const TYPE = {
   AUTH: {
-    SIGNIN: 'AUTH_SIGNIN'
+    SIGNIN: 'AUTH_SIGNIN',
+    SIGNOUT: 'AUTH_SIGNOUT'
   }
 }
 

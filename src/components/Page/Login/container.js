@@ -4,7 +4,7 @@ import { signinAuth } from '../../../actions/auth'
 import form, { initialValues } from './form'
 
 export const mapStateToProps = state => ({
-  isLogin: !!state.auth.token.length,
+  isLogin: !!state.auth.token,
   initialValues
 })
 

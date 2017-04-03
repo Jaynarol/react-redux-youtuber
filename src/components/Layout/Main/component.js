@@ -6,7 +6,7 @@ import '../../_assets_/style.css'
 import logo from './_assets_/logo.svg'
 import style from './_assets_/style.css'
 
-const LayoutMain = ({ children, isOpen, toggleNav, Link }) => (
+const LayoutMain = ({ children, toggleNav, signoutAuth, isOpen, isLogin, Link }) => (
   <Container>
     <Navbar color="faded" light toggleable>
       <NavbarToggler right onClick={toggleNav} />
@@ -14,17 +14,28 @@ const LayoutMain = ({ children, isOpen, toggleNav, Link }) => (
         <img src={logo} className={style.logo} alt="logo" />React Youtuber
       </NavbarBrand>
       <Collapse isOpen={isOpen} navbar>
-        <Nav className="ml-auto" navbar >
-          <NavItem>
-            <NavLink tag={Link} to="/">Home</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to="/login">Login</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink tag={Link} to="/register">Register</NavLink>
-          </NavItem>
-        </Nav>
+        { isLogin ?
+          <Nav className="ml-auto" navbar >
+            <NavItem>
+              <NavLink tag={Link} to="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/" onClick={signoutAuth} >Logout</NavLink>
+            </NavItem>
+          </Nav>
+          :
+          <Nav className="ml-auto" navbar >
+            <NavItem>
+              <NavLink tag={Link} to="/">Home</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/login">Login</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={Link} to="/register">Register</NavLink>
+            </NavItem>
+          </Nav>
+        }
       </Collapse>
     </Navbar>
     {children}
@@ -33,13 +44,16 @@ const LayoutMain = ({ children, isOpen, toggleNav, Link }) => (
 
 LayoutMain.propTypes = {
   children: PropTypes.node.isRequired,
-  isOpen: PropTypes.bool,
   toggleNav: PropTypes.func.isRequired,
+  signoutAuth: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool,
+  isLogin: PropTypes.bool,
   Link: PropTypes.func
 }
 
 LayoutMain.defaultProps = {
   isOpen: false,
+  isLogin: false,
   Link: LinkRouter
 }
 

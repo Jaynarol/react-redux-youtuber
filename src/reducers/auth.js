@@ -9,6 +9,12 @@ export default (auth = initialStore.auth, action) => {
         token: action.payload.token
       }
     }
+    case TYPE.AUTH.SIGNOUT: {
+      return {
+        email: '',
+        token: ''
+      }
+    }
     default: {
       return auth
     }
