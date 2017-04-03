@@ -2,7 +2,6 @@ import { mapStateToProps, mapDispatchToProps } from '../container'
 import { signupAuth } from '../../../../actions/auth'
 
 describe('PageRegister Container', () => {
-
   it('mapStateToProps', () => {
     const keyMapStateToProps = Object.keys(mapStateToProps())
     const expectedKey = ['initialValues']
@@ -13,5 +12,4 @@ describe('PageRegister Container', () => {
   it('mapDispatchToProps', () => {
     expect(mapDispatchToProps.signupAuth === signupAuth).toBe(true)
   })
-
 })
