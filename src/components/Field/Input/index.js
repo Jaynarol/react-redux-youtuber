@@ -1,1 +1,3 @@
-export { default } from './component'
+import FieldInput from './component'
+
+export default FieldInput

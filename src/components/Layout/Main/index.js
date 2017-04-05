@@ -1,1 +1,3 @@
-export { default } from './container'
+import LayoutMain from './container'
+
+export default LayoutMain

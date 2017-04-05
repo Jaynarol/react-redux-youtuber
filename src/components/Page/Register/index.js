@@ -1,1 +1,3 @@
-export { default } from './container'
+import PageRegister from './container'
+
+export default PageRegister

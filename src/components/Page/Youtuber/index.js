@@ -1,7 +1,3 @@
-import React from 'react'
-
-const PageYoutuber = () => (
-  <div>Home</div>
-)
+import PageYoutuber from './component'
 
 export default PageYoutuber

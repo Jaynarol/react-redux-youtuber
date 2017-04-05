@@ -1,1 +1,3 @@
-export { default } from './component'
+import FieldCheckbox from './component'
+
+export default FieldCheckbox
