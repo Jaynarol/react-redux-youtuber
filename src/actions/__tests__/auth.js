@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow-callback */
 import { SubmissionError } from 'redux-form'
 import Server from '../../utils/Server'
-import { signinAuth, signupAuth } from '../auth'
+import { signinAuth, signupAuth, signoutAuth } from '../auth'
 import TYPE from '../types'
 
 describe('Auth Reducer', () => {
@@ -89,6 +89,16 @@ describe('Auth Reducer', () => {
           expect(receive).toBeInstanceOf(SubmissionError)
           expect(receive.errors).toEqual(errorMessage)
         })
+    })
+  })
+
+
+  describe('signoutAuth', () => {
+    it('should be correct type and payload', () => {
+      const action = signoutAuth()
+
+      expect(action.type).toBe(TYPE.AUTH.SIGNOUT)
+      expect(action.payload).toBe(undefined)
     })
   })
 })
