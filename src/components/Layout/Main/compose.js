@@ -4,7 +4,7 @@ import component from './component'
 const enchance = compose(
   withState('isOpen', 'toggle', false),
   withHandlers({
-    toggleNav: ({ toggle }) => () => toggle(open => !open)
+    toggleNav: props => () => props.toggle(open => !open)
   })
 )
 export default enchance(component)
