@@ -12,7 +12,7 @@ Easy setup Environments with [react-create-app](https://github.com/facebookincub
 - redux
 - redux-form
 - redux-thunk
+- react-router (v4)
+- recompose
 - lodash (throttle, merge)
-- connected-react-router
-- bluebird
 - reactstrap
