@@ -5,18 +5,18 @@ import { initialStore } from '../../../../store'
 describe('LayoutMain Container', () => {
   const state = { auth: { ...initialStore.auth } }
 
-  it('mapStateToProps', () => {
+  it('mapStateToProps default', () => {
     const props = mapStateToProps(state)
     const keyProps = Object.keys(props)
 
-    expect(keyProps).toEqual(['isLogin'])
-    expect(props.isLogin).toBe(false)
+    expect(keyProps).toEqual(['isMember'])
+    expect(props.isMember).toBe(false)
   })
 
-  it('mapStateToProps isLogin true', () => {
+  it('mapStateToProps isMember is true', () => {
     state.auth.token = 'sometoken'
     const props = mapStateToProps(state)
-    expect(props.isLogin).toBe(true)
+    expect(props.isMember).toBe(true)
   })
 
   it('mapDispatchToProps', () => {

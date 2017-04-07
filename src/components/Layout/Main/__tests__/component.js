@@ -24,7 +24,7 @@ describe('LayoutMain', () => {
 
 
   it('Login', () => {
-    const html = setup({ isLogin: true }).html()
+    const html = setup({ isMember: true }).html()
     expect(html).toContain('Logout')
     expect(html).not.toContain('Login')
     expect(html).not.toContain('Register')

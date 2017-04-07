@@ -6,7 +6,7 @@ import '../../_assets_/style.css'
 import logo from './_assets_/logo.svg'
 import style from './_assets_/style.css'
 
-const LayoutMain = ({ children, toggleNav, signoutAuth, isOpen, isLogin, Link }) => (
+const LayoutMain = ({ children, toggleNav, signoutAuth, isOpen, isMember, Link }) => (
   <Container>
     <Navbar color="faded" light toggleable>
       <NavbarToggler right onClick={toggleNav} />
@@ -14,7 +14,7 @@ const LayoutMain = ({ children, toggleNav, signoutAuth, isOpen, isLogin, Link })
         <img src={logo} className={style.logo} alt="logo" />React Youtuber
       </NavbarBrand>
       <Collapse isOpen={isOpen} navbar>
-        { isLogin ?
+        { isMember ?
           <Nav className="ml-auto" navbar >
             <NavItem>
               <NavLink tag={Link} to="/">Home</NavLink>
@@ -47,13 +47,13 @@ LayoutMain.propTypes = {
   toggleNav: PropTypes.func.isRequired,
   signoutAuth: PropTypes.func.isRequired,
   isOpen: PropTypes.bool,
-  isLogin: PropTypes.bool,
+  isMember: PropTypes.bool,
   Link: PropTypes.func
 }
 
 LayoutMain.defaultProps = {
   isOpen: false,
-  isLogin: false,
+  isMember: false,
   Link: LinkRouter
 }
 

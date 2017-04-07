@@ -3,7 +3,7 @@ import compose from './compose'
 import { signoutAuth } from '../../../actions/auth'
 
 export const mapStateToProps = state => ({
-  isLogin: !!state.auth.token
+  isMember: !!state.auth.token
 })
 
 export const mapDispatchToProps = {
