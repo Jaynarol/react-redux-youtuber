@@ -1,4 +1,5 @@
-import React, { PropTypes, createElement } from 'react'
+import React, { createElement } from 'react'
+import PropTypes from 'prop-types'
 import { Redirect as ReactRedirect, Route as ReactRoute } from 'react-router-dom'
 import { GUEST, MEMBER } from './type'
 

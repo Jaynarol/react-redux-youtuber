@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { FormGroup, Input, InputGroup, InputGroupAddon, UncontrolledTooltip } from 'reactstrap'
 
 const FieldInput = ({ label, type, icon, input, meta: { touched, submitting, error } }) => {

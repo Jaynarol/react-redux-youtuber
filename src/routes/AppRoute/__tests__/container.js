@@ -19,5 +19,4 @@ describe('AppRoute Container', () => {
 
     expect(props.userType).toBe(MEMBER)
   })
-
 })

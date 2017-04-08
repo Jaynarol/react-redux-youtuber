@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { Alert, Button, Card, CardText, CardTitle, Col, Form, FormGroup, Row } from 'reactstrap'
 import { Field as FieldReduxForm } from 'redux-form'
 import { Link as LinkRouter } from 'react-router-dom'

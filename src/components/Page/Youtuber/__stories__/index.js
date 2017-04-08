@@ -8,6 +8,6 @@ const props = {}
 
 storiesOf('Page -> Youtuber', module)
   .addDecorator(story => <Container><Row><Col>{story()}</Col></Row></Container>)
-  .addWithInfo('default', 'form when first loaded', () => (
+  .addWithInfo('default', '', () => (
     <PageYoutuber {...props} />
   ))
